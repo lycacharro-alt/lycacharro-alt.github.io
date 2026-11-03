@@ -5,26 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lyca MedVA | Billing &amp; Admin</title>
 <meta name="description" content="Remote medical billing specialist for behavioral health and outpatient practices. End-to-end revenue cycle management, 5+ years of experience.">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#F1F6FA; --surface:#FFFFFF; --ink:#0F2A43; --muted:#4A6178; --line:#D3E0EA;
-  --accent:#0AA6C8; --link:#0A7893; --btn:#0F2A43; --btnink:#FFFFFF; --band:#0F2A43; --bandink:#EAF3F9;
+  --accent:#0AA6C8; --link:#0A7893; --btn:#0F2A43; --btnink:#FFFFFF; --band:#0F2A43; --bandink:#EAF3F9; --pop:#FF7A59; --pop-line:#FF7A59; --pop-ink:#0F2A43; --pop-tint:#FFEFE9;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#0A1827; --surface:#112437; --ink:#E7F0F7; --muted:#9DB3C5; --line:#22394E;
-    --accent:#38C5E5; --link:#6AD6EE; --btn:#38C5E5; --btnink:#06202D; --band:#0E2236; --bandink:#E7F0F7;
+    --accent:#38C5E5; --link:#6AD6EE; --btn:#38C5E5; --btnink:#06202D; --band:#0E2236; --bandink:#E7F0F7; --pop:#FF8A6B; --pop-line:#FF8A6B; --pop-ink:#0F2A43; --pop-tint:#2B2025;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#0A1827; --surface:#112437; --ink:#E7F0F7; --muted:#9DB3C5; --line:#22394E;
-  --accent:#38C5E5; --link:#6AD6EE; --btn:#38C5E5; --btnink:#06202D; --band:#0E2236; --bandink:#E7F0F7;
+  --accent:#38C5E5; --link:#6AD6EE; --btn:#38C5E5; --btnink:#06202D; --band:#0E2236; --bandink:#E7F0F7; --pop:#FF8A6B; --pop-line:#FF8A6B; --pop-ink:#0F2A43; --pop-tint:#2B2025;
   color-scheme:dark;
 }
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
@@ -49,6 +50,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:16px;background:var(--btn);color:var(--btnink);border:2px solid var(--btn)}
 .btn.alt{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.pop{background:var(--pop);color:var(--pop-ink);border-color:var(--pop)}
 .intro{display:grid;grid-template-columns:1.5fr 1fr;grid-template-areas:"h fig" "rest fig";column-gap:44px;align-items:center}
 .intro h1{grid-area:h;align-self:end}
 .rest{grid-area:rest;align-self:start}
@@ -59,10 +61,12 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .cycle p{font-size:15px;color:var(--muted);margin-bottom:12px}
 .cycle ol{list-style:none;margin:0;padding:0 0 6px;display:flex;gap:0;overflow-x:auto}
 .cycle li{flex:1 0 140px;position:relative;padding:16px 14px 0 0;font-weight:600;font-size:15px;border-top:3px solid var(--accent)}
-.cycle li::before{content:"";position:absolute;top:-8px;left:0;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.cycle li::before{content:"";position:absolute;top:-8px;left:0;width:13px;height:13px;border-radius:50%;background:var(--pop-line);border:3px solid var(--bg)}
 .cycle li small{display:block;font-weight:400;color:var(--muted);font-size:14px;margin-top:2px;line-height:1.4}
 section{padding:60px 0}
 h2{font-size:clamp(28px,4.4vw,42px);font-weight:700;margin-bottom:12px}
+h2::after{content:"";display:block;width:48px;height:4px;border-radius:2px;background:var(--pop-line);margin-top:12px}
+#why{background:var(--pop-tint)}
 .sub{color:var(--muted);max-width:60ch;margin-bottom:34px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
@@ -87,10 +91,27 @@ h2{font-size:clamp(28px,4.4vw,42px);font-weight:700;margin-bottom:12px}
 .contact{text-align:left}
 .contact h2{max-width:18ch}
 .contact .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.contact .btn{background:var(--accent);color:#06202D;border-color:var(--accent)}
+.contact .btn{background:var(--pop);color:var(--pop-ink);border-color:var(--pop)}
 .contact .btn.alt{background:transparent;color:var(--bandink);border-color:var(--bandink)}
 footer{padding:26px 0 34px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 transparent}45%{box-shadow:0 0 0 10px color-mix(in srgb,var(--pop) 30%,transparent)}}
+.intro h1{animation:rise .7s ease both}
+.rest{animation:rise .7s .12s ease both}
+.portrait{animation:rise .7s .24s ease both}
+.hero .btn.pop{animation:glow 1.6s 1.4s ease-out 1}
+.btn{transition:transform .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.card{transition:transform .25s ease,border-color .25s ease}
+.card:hover{transform:translateY(-4px);border-color:var(--pop-line)}
+.js .reveal{opacity:0;translate:0 18px;transition:opacity .6s ease,translate .6s ease,transform .25s ease,border-color .25s ease}
+.js .reveal.in{opacity:1;translate:none}
+.cycle li:nth-child(2){--d:.13s}.cycle li:nth-child(3){--d:.26s}.cycle li:nth-child(4){--d:.39s}.cycle li:nth-child(5){--d:.52s}.cycle li:nth-child(6){--d:.65s}
+.js .cycle li{opacity:0;translate:0 8px;transition:opacity .5s ease,translate .5s ease;transition-delay:var(--d,0s)}
+.js .cycle li::before{transform:scale(0);transition:transform .4s cubic-bezier(.3,1.6,.5,1) calc(var(--d,0s) + .15s)}
+.js .cycle.in li{opacity:1;translate:none}
+.js .cycle.in li::before{transform:scale(1)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js .reveal,.js .cycle li{opacity:1!important;translate:none!important}.js .cycle li::before{transform:scale(1)!important}}
 </style>
 </head>
 <body>
@@ -112,7 +133,7 @@ footer{padding:26px 0 34px;font-size:14px;color:var(--muted);border-top:1px soli
     <h1>You focus on healing. I’ll focus on your revenue.</h1>
     <div class="rest"><p class="lede">I’m Lyca Cacharro, a remote medical billing specialist with 5+ years of experience. I run the full revenue cycle for behavioral health and outpatient practices, so claims get paid and your team gets time back.</p>
     <div class="cta">
-      <a class="btn" href="https://calendly.com/lycacharro/15-min-discovery-meeting" target="_blank" rel="noopener">Book a discovery call</a>
+      <a class="btn pop" href="https://calendly.com/lycacharro/15-min-discovery-meeting" target="_blank" rel="noopener">Book a discovery call</a>
       <a class="btn alt" href="#services">See services</a>
     </div>
     </div>
@@ -193,7 +214,7 @@ footer{padding:26px 0 34px;font-size:14px;color:var(--muted);border-top:1px soli
     </div>
   </section>
 
-  <section id="why" style="padding-top:0">
+  <section id="why">
     <div class="wrap">
       <h2>Why work with me</h2>
       <p class="sub">Behind every thriving practice is a reliable billing partner.</p>
@@ -222,5 +243,40 @@ footer{padding:26px 0 34px;font-size:14px;color:var(--muted);border-top:1px soli
 <footer>
   <div class="wrap">Lyca MedVA | Billing &amp; Admin. Remote medical billing specialist and independent contractor, based in Negros Oriental, Philippines.</div>
 </footer>
+<script>
+(function(){
+try{
+var els=document.querySelectorAll('.card,.role,.cols>div,section h2,.sub');
+var cy=document.querySelector('.cycle');
+var groups=new Map();
+els.forEach(function(el){
+el.classList.add('reveal');
+var n=groups.get(el.parentNode)||0;
+groups.set(el.parentNode,n+1);
+el.style.transitionDelay=Math.min(n,5)*70+'ms';
+});
+function show(el){
+el.classList.add('in');
+if(el.classList.contains('reveal')){
+el.addEventListener('transitionend',function(){el.style.transitionDelay=''},{once:true});
+}
+}
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(es){
+es.forEach(function(e){
+if(e.isIntersecting){show(e.target);io.unobserve(e.target);}
+});
+},{threshold:0.15});
+els.forEach(function(el){io.observe(el)});
+if(cy){io.observe(cy)}
+}else{
+els.forEach(show);
+if(cy){cy.classList.add('in')}
+}
+}catch(e){
+document.documentElement.classList.remove('js');
+}
+})();
+</script>
 </body>
 </html>
